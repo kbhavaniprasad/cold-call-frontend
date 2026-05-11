@@ -451,7 +451,7 @@ function App() {
       await navigator.mediaDevices.getUserMedia({ audio: true });
 
       // Use environment variable for backend URL, fallback to localhost for development
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://cold-call-frontend.onrender.com';
       
       const response = await fetch(`${backendUrl}/api/create-web-call`, {
         method: 'POST',
