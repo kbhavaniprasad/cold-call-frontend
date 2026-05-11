@@ -450,7 +450,10 @@ function App() {
     try {
       await navigator.mediaDevices.getUserMedia({ audio: true });
 
-      const response = await fetch('http://localhost:3001/api/create-web-call', {
+      // Use environment variable for backend URL, fallback to localhost for development
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+      
+      const response = await fetch(`${backendUrl}/api/create-web-call`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });
